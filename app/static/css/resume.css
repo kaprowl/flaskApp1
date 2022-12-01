@@ -19,9 +19,14 @@ body {
 }
 
 .propic {
-  background-color: rgb(139, 139, 139);
+  background-color: rgb(126, 126, 126);
   width: 300px;
   height: 250px;
+  filter: saturate(0.65);
+}
+
+.font1 {
+  font-family: "Trirong", serif;
 }
 
 .img {
@@ -35,13 +40,13 @@ body {
 }
 
 .title {
-  background-color: rgb(139, 139, 139);
+  background-color: rgb(126, 126, 126);
   width: 700px;
   height: 250px;
 }
 
 .left {
-  background-color: rgb(255, 235, 180);
+  background-color: rgb(241, 231, 204);
   width: 300px;
   height: auto;
 }
@@ -54,10 +59,93 @@ body {
 
 .textcenter {
   text-align:center;
-  margin-top: 60px;
+  margin-top: 50px;
+}
+
+.textcenter2 {
+  text-align:center;
 }
 
 .text1 {
-  text-align:center;
-  margin-top: 20px;
+  text-align:center
+}
+
+.font2 {font-family: 'GFS Didot';}
+
+.gg-mail,
+.gg-mail::after {
+  margin-top: 15px;
+    display: block;
+    box-sizing: border-box;
+    height: 14px;
+    border: 2px solid
+}
+.gg-mail {
+    overflow: hidden;
+    transform: scale(var(--ggs,1));
+    position: relative;
+    width: 18px;
+    border-radius: 2px
+}
+.gg-mail::after {
+    content: "";
+    position: absolute;
+    border-radius: 3px;
+    width: 14px;
+    transform: rotate(-45deg);
+    bottom: 3px;
+}
+
+.marb {
+  margin-bottom: 30px;
+}
+
+.font11 {
+  font-size: 11px;
+}
+
+.tab {
+  margin-left: 10px;
+}
+
+.tabX2 {
+  margin-left: 22px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.mar40 {
+  margin-top: 40px;
+}
+
+.mardel {
+  margin-top: 0px;
+}
+
+.flex {
+  display: flex;
+}
+
+.dotbox{
+  border: 2px dotted;
+  margin-left: 25%;
+  margin-right: 25%;
+}
+
+.gray {
+  color: rgb(182, 182, 182);
+}
+
+table, td, th {
+  border: 1px dotted;
+  border-color: rgb(199, 139, 11);
+}
+
+table {
+  margin-left: 5%;
+  margin-right: 5%;
+  width: 90%;
+  border-collapse: collapse;
 }
