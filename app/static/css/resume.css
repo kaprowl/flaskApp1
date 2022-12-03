@@ -25,6 +25,10 @@ body {
   filter: saturate(0.65);
 }
 
+.font12 {
+  font-size: 12px;
+}
+
 .font1 {
   font-family: "Trirong", serif;
 }
@@ -49,12 +53,14 @@ body {
   background-color: rgb(241, 231, 204);
   width: 300px;
   height: auto;
+  padding: 15px;
 }
 
 .right {
   background-color: rgb(248, 248, 248);
   width: 700px;
   height: auto;
+  padding: 15px;
 }
 
 .textcenter {
@@ -96,8 +102,62 @@ body {
     bottom: 3px;
 }
 
+.gg-phone {
+  box-sizing: border-box;
+  position: relative;
+  display: block;
+  width: 22px;
+  height: 22px;
+  transform: scale(var(--ggs,1))
+}
+.gg-phone::after,
+.gg-phone::before {
+  content: "";
+  display: block;
+  box-sizing: border-box;
+  position: absolute
+}
+.gg-phone::after {
+  width: 18px;
+  height: 18px;
+  border-top-left-radius: 1px;
+  border-bottom-right-radius: 1px;
+  border-bottom-left-radius: 12px;
+  border-left: 4px solid;
+  border-bottom: 4px solid;
+  left: 2px;
+  bottom: 2px;
+  background:
+     linear-gradient(
+        to left,
+        currentColor 10px,
+        transparent 0
+     ) no-repeat right 11px/6px 4px,
+     linear-gradient(
+        to left,
+        currentColor 10px,
+        transparent 0
+     ) no-repeat -1px 0/4px 6px
+}
+.gg-phone::before {
+  width: 20px;
+  height: 20px;
+  border: 6px double;
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
+  border-radius: 50%;
+  transform: rotate(-45deg);
+  bottom: 2px;
+  left: 2px
+}
+
 .marb {
   margin-bottom: 30px;
+}
+
+.marb10 {
+  margin-bottom: 10px;
 }
 
 .font11 {
@@ -135,7 +195,7 @@ body {
 }
 
 .gray {
-  color: rgb(182, 182, 182);
+  color: rgb(133, 132, 132);
 }
 
 table, td, th {
@@ -143,9 +203,36 @@ table, td, th {
   border-color: rgb(199, 139, 11);
 }
 
+.mart {
+  margin-top: 10px;
+}
+
 table {
   margin-left: 5%;
   margin-right: 5%;
   width: 90%;
   border-collapse: collapse;
+}
+
+.skills {
+  text-align: center;
+  color: rgb(255, 255, 255);
+}
+
+.html {width: 50%; background-color: rgb(248, 185, 47); border-radius: 16px;}
+.css {width: 43%; background-color: rgb(248, 185, 47); border-radius: 16px;}
+.go {width: 35%; background-color: rgb(248, 185, 47); border-radius: 16px;}
+.python {width: 60%; background-color: rgb(248, 185, 47); border-radius: 16px;}
+.cpp {width: 15%; background-color: rgb(248, 185, 47); border-radius: 16px;}
+.th {width: 35%; background-color: rgb(248, 185, 47); border-radius: 16px;}
+.nth {width: 60%; background-color: rgb(248, 185, 47); border-radius: 16px;}
+.eng {width: 15%; background-color: rgb(248, 185, 47); border-radius: 16px;}
+
+.container {
+  width: 70%;
+  border-radius: 16px;
+  background-color: rgb(248, 248, 248);
+}
+p {
+  margin: 0px;
 }
