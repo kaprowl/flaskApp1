@@ -10,6 +10,9 @@ body {
   background-color: rgb(201, 201, 201);
 }
 
+.textr {
+  text-align: right;
+}
 .container2 {
   display: flex;
   width: 1000px;
@@ -32,7 +35,9 @@ body {
 .font1 {
   font-family: "Trirong", serif;
 }
-
+h1 {
+  margin: 0px;
+}
 .img {
   margin-left: 45px;
   margin-top: 15px;
@@ -50,6 +55,7 @@ body {
 }
 
 .left {
+  text-align: right;
   background-color: rgb(241, 231, 204);
   width: 300px;
   height: auto;
@@ -72,6 +78,15 @@ body {
   text-align:center;
 }
 
+h3 {
+  font-size: 26px;
+  margin: 0px;
+}
+
+h4 {
+  margin: 0px;
+}
+
 .text1 {
   text-align:center
 }
@@ -84,7 +99,7 @@ body {
     display: block;
     box-sizing: border-box;
     height: 14px;
-    border: 2px solid
+    border: 2px solid;
 }
 .gg-mail {
     overflow: hidden;
@@ -152,6 +167,25 @@ body {
   left: 2px
 }
 
+.pin {
+  width: 15px ;
+  height: 15px ;
+  background-color: #000000 ;
+  border-radius: 60px 60px 0px 60px ;
+  position:relative ;
+  transform: rotate(45deg);
+}
+.pin::after {
+  content: "" ;
+  width: 7px ;
+  height: 7px ;
+  background: rgb(247, 247, 247) ;
+  position: absolute ;
+  left: 26% ;
+  top: 26% ;
+  border-radius: 60px ;
+}
+
 .marb {
   margin-bottom: 30px;
 }
@@ -160,16 +194,32 @@ body {
   margin-bottom: 10px;
 }
 
+.marb40 {
+  margin-bottom: 40px;
+}
 .font11 {
   font-size: 11px;
+}
+
+.textr {
+  text-align: right;
+  justify-content: right;
 }
 
 .tab {
   margin-left: 10px;
 }
 
+.tabr {
+  margin-right: 10px;
+}
+
 .tabX2 {
   margin-left: 22px;
+}
+
+.tabX2r {
+  margin-right: 22px;
 }
 
 .bold {
@@ -207,6 +257,14 @@ table, td, th {
   margin-top: 10px;
 }
 
+.mart20 {
+  margin-top: 15px;
+}
+
+.mart30 {
+  margin-top: 30px;
+}
+
 table {
   margin-left: 5%;
   margin-right: 5%;
@@ -219,14 +277,6 @@ table {
   color: rgb(255, 255, 255);
 }
 
-.html {width: 50%; background-color: rgb(248, 185, 47); border-radius: 16px;}
-.css {width: 43%; background-color: rgb(248, 185, 47); border-radius: 16px;}
-.go {width: 35%; background-color: rgb(248, 185, 47); border-radius: 16px;}
-.python {width: 60%; background-color: rgb(248, 185, 47); border-radius: 16px;}
-.cpp {width: 15%; background-color: rgb(248, 185, 47); border-radius: 16px;}
-.th {width: 35%; background-color: rgb(248, 185, 47); border-radius: 16px;}
-.nth {width: 60%; background-color: rgb(248, 185, 47); border-radius: 16px;}
-.eng {width: 15%; background-color: rgb(248, 185, 47); border-radius: 16px;}
 
 .container {
   width: 70%;
