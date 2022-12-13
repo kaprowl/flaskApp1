@@ -16,6 +16,10 @@ def index():
 def resume():
     return app.send_static_file('lab02_resume.html')
 
+@app.route('/lab04')
+def lab04_bootstrap():
+    return app.send_static_file('lab04_bootstrap.html')
+
 @app.route('/lab03')
 def lab03_home():
     return render_template('lab03/index.html',
