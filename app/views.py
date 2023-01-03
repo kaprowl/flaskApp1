@@ -100,3 +100,11 @@ def lab06_index():
         write_file('data/course_list.json', json.dumps(course_list, indent=4))
         return redirect(url_for('lab06_courses'))
     return render_template('lab06/index.html', form=form)
+
+@app.route('/lab07/', methods=('GET', 'POST'))
+def lab07_form_validation():
+    return app.send_static_file('lab07_form_validation.html')
+
+@app.route('/lab07b/', methods=('GET', 'POST'))
+def lab07b():
+    return app.send_static_file('lab07b.html')
