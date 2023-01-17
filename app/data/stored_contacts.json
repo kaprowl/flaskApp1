@@ -1,0 +1,29 @@
+[
+    {
+        "firstname": "สมชาย",
+        "lastname": "ทรงแบด",
+        "phone": "081 123 4567",
+        "postcode": "50270",
+        "subdist": "บ้านทับ",
+        "district": "แม่แจ่ม",
+        "province": "เชียงใหม่"
+    },
+    {
+        "firstname": "สมชาย",
+        "lastname": "แบดบอย",
+        "phone": "0836182625",
+        "postcode": "51000",
+        "subdist": "เทพ",
+        "district": "พสุธร",
+        "province": "ลำพูน"
+    },
+    {
+        "firstname": "t1t1e35554",
+        "lastname": "MUENRACH",
+        "phone": "0836182625",
+        "postcode": "50200",
+        "subdist": "",
+        "district": "",
+        "province": ""
+    }
+]
