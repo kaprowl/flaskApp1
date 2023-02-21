@@ -109,9 +109,10 @@
     rmv_data = data
     const post = document.getElementById("post");
     post.innerHTML = "";
-    data.sort(function (x, y) {
-      return y.id - x.id;
+    data.sort(function (first, last) {
+      return last.id - first.id;
     });
+    lastinput = data[0]
     for (let i = 0; i < data.length; i++) {
       const customer = data[i];
       const recordDiv = document.createElement("div");
@@ -154,6 +155,7 @@
 
   let edit_data = null;
   let rmv_data = null;
+  let lastinput = null;
 
   function refreshData() {
     $.ajax({
@@ -265,6 +267,9 @@
 
   $("#add_contact").click(function () {
       clearForm();
+      $('#addPhoneNumberForm')[0].reset();
+      $('#name').val(lastinput.name);
+      $('#email').val(lastinput.email);
       toggleView();
   });
 
