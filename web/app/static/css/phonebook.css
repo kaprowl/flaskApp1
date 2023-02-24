@@ -50,6 +50,10 @@ input[type=submit]:hover {
     float: left;
 }
 
+.box3 {
+    float: right;
+}
+
 
 .box2 {
     width: 49%;
