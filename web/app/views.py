@@ -117,6 +117,16 @@ def lab11_db_BlogEntry():
 
     return jsonify(contacts)
 
+@app.route("/lab12/authuser")
+def lab12_db_authuser_all():
+    contacts = []
+    db_contacts = AuthUser.query.all()
+
+    contacts = list(map(lambda x: x.to_dict(), db_contacts))
+    app.logger.debug("DB Contacts: " + str(db_contacts))
+
+    return jsonify(contacts)
+
 @app.route('/lab11/remove_BlogEntry', methods=('GET', 'POST'))
 def lab11_remove_BlogEntry():
     app.logger.debug("LAB11 - REMOVE")
@@ -159,6 +169,7 @@ def lab11():
             app.logger.debug('validated dict: ' + str(validated_dict))
             # if there is no id: create a new blog entry
             if not id_:
+                validated_dict['owner_id'] = current_user.id
                 entry = BlogEntry(**validated_dict)
                 app.logger.debug(str(entry))
                 db.session.add(entry)
@@ -170,7 +181,7 @@ def lab11():
             db.session.commit()
 
         return lab11_db_BlogEntry()
-    return app.send_static_file('lab11_microblog.html')
+    return render_template('lab11_microblog.html')
 
 @app.route('/lab12')
 def lab12_index():

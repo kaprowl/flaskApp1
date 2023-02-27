@@ -2,6 +2,7 @@ from flask_login import UserMixin
 from sqlalchemy_serializer import SerializerMixin
 from app import db
 from .contact import Contact
+from .BlogEntry import BlogEntry
 
 
 class AuthUser(db.Model, UserMixin):
@@ -20,10 +21,24 @@ class AuthUser(db.Model, UserMixin):
         self.password = password
         self.avatar_url = avatar_url
 
+    def to_dict(self):
+        return {
+            'poster_id': self.id,
+            'email': self.email,
+            'name': self.name,
+            'password': self.password,
+            'avatar_url': self.avatar_url
+        }
 class PrivateContact(Contact, UserMixin, SerializerMixin):
     owner_id = db.Column(db.Integer, db.ForeignKey('auth_users.id'))
 
-
     def __init__(self, firstname, lastname, phone, owner_id):
         super().__init__(firstname, lastname, phone)
+        self.owner_id = owner_id
+
+class PrivateBlogEntry(BlogEntry, UserMixin, SerializerMixin):
+    owner_id = db.Column(db.Integer, db.ForeignKey('auth_users.id'))
+
+    def __init__(self, name, message, email, owner_id):
+        super().__init__(name, message, email)
         self.owner_id = owner_id

@@ -21,7 +21,7 @@ img.tw-user-medium {
     background-color: #e7ecf0
 }
  
-#nav-tweet-btn {
+.btn {
     border-radius: 20px;
     background-color: #67b1f9;
     color: #ffffff;

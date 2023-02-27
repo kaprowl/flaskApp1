@@ -3,8 +3,6 @@ from sqlalchemy_serializer import SerializerMixin
 import pytz
 from datetime import datetime
 
-
-
 class BlogEntry(db.Model, SerializerMixin):
     __tablename__ = "Blog"
 
@@ -18,8 +16,10 @@ class BlogEntry(db.Model, SerializerMixin):
     email = db.Column(db.String(50))
     date_created = db.Column(db.DateTime)
     date_updated = db.Column(db.DateTime)
+    currentID = db.Column(db.Integer)
 
-    def __init__(self, name, message, email, image=None):
+    def __init__(self, name, message, email, owner_id):
+        self.currentID = owner_id
         self.name = name
         self.message = message
         self.email = email
@@ -30,7 +30,7 @@ class BlogEntry(db.Model, SerializerMixin):
         self.date_updated = formatted_time
 
 
-    def update(self, name, message, email, image=None):
+    def update(self, name, message, email):
         self.name = name
         self.message = message
         self.email = email
@@ -38,4 +38,3 @@ class BlogEntry(db.Model, SerializerMixin):
         current_time = datetime.now(timezone)
         formatted_time = current_time.strftime('%d %B %Y %H:%M:%S')
         self.date_updated = formatted_time
-
