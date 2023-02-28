@@ -1,0 +1,39 @@
+{% extends "lab12/base.html" %}
+{% block content %}
+<div class="column is-4 is-offset-4">
+ <h3 class="title">edit your name or email</h3>
+ <div class="box">
+   {% with messages = get_flashed_messages() %}
+   {% if messages %}
+   <div class="notification is-danger">
+     {{ messages[0] }}
+   </div>
+   {% endif %}
+   {% endwith %}
+   <form method="POST" id="editinfo">
+     <div class="field">
+       <div class="control">
+         <input class="input is-large" id="email" type="email" name="email" placeholder="New email" autofocus="">
+       </div>
+     </div>
+     <div class="field">
+        <div class="control">
+          <input class="input is-large" id="name" type="text" name="name" placeholder="New name" autofocus="">
+        </div>
+      </div>
+     <button class="button is-block is-info is-large is-fullwidth">Submit change</button>
+   </form>
+ </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+<script>
+  $(document).ready(function () {
+    (function () {
+      $('#name').val("{{ current_user.name }}");
+      $('#email').val("{{ current_user.email }}");
+    })();
+  });
+</script>
+
+{% endblock %}
