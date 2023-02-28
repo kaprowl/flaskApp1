@@ -187,9 +187,15 @@ def lab11():
 def lab12_index():
     return render_template('lab12/base.html')
 
-@app.route('/lab12/profile')
+@app.route('/lab12/profile' , methods=('GET', 'POST'))
 @login_required
 def lab12_profile():
+    if request.method == 'POST':
+
+        next_page = request.args.get('next')
+        if not next_page or url_parse(next_page).netloc != '':
+            next_page = url_for('lab12_editinfo')
+        return redirect(next_page)
     return render_template('lab12/profile.html')
 
 @app.route('/lab12/login', methods=('GET', 'POST'))
@@ -215,10 +221,56 @@ def lab12_login():
         login_user(user, remember=remember)
         next_page = request.args.get('next')
         if not next_page or url_parse(next_page).netloc != '':
-            next_page = url_for('lab12_profile')
+            next_page = url_for('lab11')
         return redirect(next_page)
 
     return render_template('lab12/login.html')
+
+@app.route('/lab12/passchangecheck', methods=('GET', 'POST'))
+def lab12_passchangecheck():
+    if request.method == 'POST':
+        # login code goes here
+        password = request.form.get('password')
+
+        user = AuthUser.query.filter_by(email=current_user.email).first()
+ 
+        # check if the user actually exists
+        # take the user-supplied password, hash it, and compare it to the
+        # hashed password in the database
+        if not user or not check_password_hash(user.password, password):
+            flash('Please check your login details and try again.')
+            # if the user doesn't exist or password is wrong, reload the page
+            return redirect(url_for('lab12_passchangecheck'))
+
+        # if the above check passes, then we know the user has the right
+        # credentials
+        next_page = request.args.get('next')
+        if not next_page or url_parse(next_page).netloc != '':
+            next_page = url_for('lab12_editinfo')
+        return redirect(next_page)
+
+    return render_template('lab12/passchangecheck.html')
+
+@app.route('/lab12/editinfo', methods=('GET', 'POST'))
+def lab12_editinfo():
+    if request.method == 'POST':
+        email = request.form.get('email')
+        name = request.form.get('name')
+
+        user = AuthUser.query.filter_by(email=current_user.email).first()
+        user.name = name
+        user.email = email
+
+        avatar_url = gen_avatar_url(email, name)
+        user.avatar_url = avatar_url
+        db.session.commit()
+        
+        next_page = request.args.get('next')
+        if not next_page or url_parse(next_page).netloc != '':
+            next_page = url_for('lab11')
+        return redirect(next_page)
+
+    return render_template('lab12/editinfo.html')
 
 @app.route('/lab12/signup', methods=('GET', 'POST'))
 def lab12_signup():
@@ -295,4 +347,4 @@ def gen_avatar_url(email, name):
 @login_required
 def lab12_logout():
     logout_user()
-    return redirect(url_for('lab12_index'))
+    return redirect(url_for('lab12_login'))

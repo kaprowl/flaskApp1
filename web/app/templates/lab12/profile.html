@@ -3,5 +3,7 @@
 <h1 class="title">
   Welcome, {{ current_user.name }}!!
 </h1>
+<button type="button" onclick="location.href='{{ url_for('lab12_passchangecheck') }}'">
+  Change your name or email
+</button>
 {% endblock %}
-
